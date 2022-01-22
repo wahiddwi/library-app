@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+
+
+// Route::get('/dashboard', function () {
+//         return view('admin.dashboard');
+//     });
+
+    // Route::get('/dashboard', 'Admin/DashboardController@index')->name('dashboard');
+
+    ////ADMIN
+    Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function() {
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+    });
+
+////STUDENT
+// Route::prefix('student')
+// ->middleware(['auth', 'student'])
+// ->group(function() {
+//     Route::get('/', [App\Http\Controllers\Student\DashboardController::class, 'index'])->name('dashboard');
+
+// });
