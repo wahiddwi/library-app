@@ -15,3 +15,4 @@
 
   <!-- Page Specific JS File -->
   @stack('after-scripts')
+  @livewireScripts

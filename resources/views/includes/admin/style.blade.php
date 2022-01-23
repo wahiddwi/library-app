@@ -7,5 +7,5 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ url('backend/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ url('backend/assets/css/components.css') }}">
-
+  @livewireStyles
   @stack('after-styles')

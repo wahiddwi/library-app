@@ -56,6 +56,11 @@
             </ul>
           </li> --}}
           <li class="nav-item">
+            <a class="nav-link" href="{{ route('category') }}">
+              <i class="fas fa-fw fa-key"></i>
+              <span>Categories</span></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="">
               <i class="fas fa-fw fa-key"></i>
               <span>User Managements</span></a>
